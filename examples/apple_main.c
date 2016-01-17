@@ -1,27 +1,20 @@
-//  main.c
-//  libsvgtiny2
-//
-//  Created by david on 1/16/16.
-//  Copyright © 2016 David Phillip Oster. All rights reserved.
-//
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-
-#include "svgtiny.h"
 /*
  * This file is an optional part of Libsvgtiny
  * Licensed under the MIT License,
  *                http://opensource.org/licenses/mit-license.php
  *
- * It is an example of reading and writing SVG files.
+ * it demonstrates SVG file i/o
  *
  * Copyright 2016 by David Phillip Oster
  */
+
+#include "svgtiny.h"
 #include "svgtiny_writer.h"
 #include "svgtiny_report_err.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <sys/stat.h>
 
 static char *test = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
 "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n"
