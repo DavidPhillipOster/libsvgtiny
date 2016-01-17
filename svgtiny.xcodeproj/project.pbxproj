@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		631042EA1C4ACF0D00B77D27 /* liblibsvgtiny.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631042D11C4AAFF800B77D27 /* liblibsvgtiny.a */; };
 		63361D791C4B4E5500E08DC0 /* liblibsvgtinywriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63361D6E1C4B464900E08DC0 /* liblibsvgtinywriter.a */; };
-		63DB948E1C4C2737002255AC /* apple_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB948C1C4C2731002255AC /* apple_main.c */; };
 		63DB949A1C4C2778002255AC /* svgColor2.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94921C4C2778002255AC /* svgColor2.c */; };
 		63DB949B1C4C2778002255AC /* svgtiny.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94931C4C2778002255AC /* svgtiny.c */; };
 		63DB949C1C4C2778002255AC /* svgtiny_gradient.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94941C4C2778002255AC /* svgtiny_gradient.c */; };
@@ -20,6 +19,10 @@
 		63DB94A11C4C2778002255AC /* xml2dom.h in Headers */ = {isa = PBXBuildFile; fileRef = 63DB94991C4C2778002255AC /* xml2dom.h */; };
 		63DB94A61C4C27F4002255AC /* svgtiny_report_err.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94A41C4C27F4002255AC /* svgtiny_report_err.c */; };
 		63DB94A71C4C27F4002255AC /* svgtiny_writer.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94A51C4C27F4002255AC /* svgtiny_writer.c */; };
+		63DB94B61C4C4136002255AC /* liblibsvgtinywriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63361D6E1C4B464900E08DC0 /* liblibsvgtinywriter.a */; };
+		63DB94B71C4C4136002255AC /* liblibsvgtiny.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631042D11C4AAFF800B77D27 /* liblibsvgtiny.a */; };
+		63DB94BD1C4C4151002255AC /* apple_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB948C1C4C2731002255AC /* apple_main.c */; };
+		63DB94BF1C4C4164002255AC /* satinstitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 63DB94BE1C4C4164002255AC /* satinstitch.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,20 @@
 			remoteInfo = libsvgtiny;
 		};
 		63361D771C4B4E4B00E08DC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631042BB1C4AAF6C00B77D27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63361D6D1C4B464900E08DC0;
+			remoteInfo = libsvgtinywriter;
+		};
+		63DB94B01C4C4136002255AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 631042BB1C4AAF6C00B77D27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 631042D01C4AAFF800B77D27;
+			remoteInfo = libsvgtiny;
+		};
+		63DB94B21C4C4136002255AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 631042BB1C4AAF6C00B77D27 /* Project object */;
 			proxyType = 1;
@@ -49,10 +66,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		63DB94B81C4C4136002255AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		631042C31C4AAF6C00B77D27 /* libsvgtiny2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = libsvgtiny2; sourceTree = BUILT_PRODUCTS_DIR; };
+		631042C31C4AAF6C00B77D27 /* apple_main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apple_main; sourceTree = BUILT_PRODUCTS_DIR; };
 		631042D11C4AAFF800B77D27 /* liblibsvgtiny.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibsvgtiny.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		631042EB1C4AD3DC00B77D27 /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		63361D6E1C4B464900E08DC0 /* liblibsvgtinywriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibsvgtinywriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +97,8 @@
 		63DB94A91C4C2847002255AC /* svgtiny_report_err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svgtiny_report_err.h; path = libsvgtinywriter/include/svgtiny_report_err.h; sourceTree = SOURCE_ROOT; };
 		63DB94AA1C4C2847002255AC /* svgtiny_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svgtiny_writer.h; path = libsvgtinywriter/include/svgtiny_writer.h; sourceTree = SOURCE_ROOT; };
 		63DB94AD1C4C2C28002255AC /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		63DB94BC1C4C4136002255AC /* satinstitch */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = satinstitch; sourceTree = BUILT_PRODUCTS_DIR; };
+		63DB94BE1C4C4164002255AC /* satinstitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = satinstitch.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +125,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63DB94B51C4C4136002255AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DB94B61C4C4136002255AC /* liblibsvgtinywriter.a in Frameworks */,
+				63DB94B71C4C4136002255AC /* liblibsvgtiny.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,9 +152,10 @@
 		631042C41C4AAF6C00B77D27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				631042C31C4AAF6C00B77D27 /* libsvgtiny2 */,
+				631042C31C4AAF6C00B77D27 /* apple_main */,
 				631042D11C4AAFF800B77D27 /* liblibsvgtiny.a */,
 				63361D6E1C4B464900E08DC0 /* liblibsvgtinywriter.a */,
+				63DB94BC1C4C4136002255AC /* satinstitch */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				63DB948C1C4C2731002255AC /* apple_main.c */,
+				63DB94BE1C4C4164002255AC /* satinstitch.c */,
 			);
 			path = examples;
 			sourceTree = "<group>";
@@ -199,9 +238,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		631042C21C4AAF6C00B77D27 /* libsvgtiny2 */ = {
+		631042C21C4AAF6C00B77D27 /* apple_main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 631042CA1C4AAF6C00B77D27 /* Build configuration list for PBXNativeTarget "libsvgtiny2" */;
+			buildConfigurationList = 631042CA1C4AAF6C00B77D27 /* Build configuration list for PBXNativeTarget "apple_main" */;
 			buildPhases = (
 				631042BF1C4AAF6C00B77D27 /* Sources */,
 				631042C01C4AAF6C00B77D27 /* Frameworks */,
@@ -213,9 +252,9 @@
 				631042E31C4AB14100B77D27 /* PBXTargetDependency */,
 				63361D781C4B4E4B00E08DC0 /* PBXTargetDependency */,
 			);
-			name = libsvgtiny2;
+			name = apple_main;
 			productName = libsvgtiny2;
-			productReference = 631042C31C4AAF6C00B77D27 /* libsvgtiny2 */;
+			productReference = 631042C31C4AAF6C00B77D27 /* apple_main */;
 			productType = "com.apple.product-type.tool";
 		};
 		631042D01C4AAFF800B77D27 /* libsvgtiny */ = {
@@ -252,6 +291,25 @@
 			productReference = 63361D6E1C4B464900E08DC0 /* liblibsvgtinywriter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		63DB94AE1C4C4136002255AC /* satinstitch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63DB94B91C4C4136002255AC /* Build configuration list for PBXNativeTarget "satinstitch" */;
+			buildPhases = (
+				63DB94B31C4C4136002255AC /* Sources */,
+				63DB94B51C4C4136002255AC /* Frameworks */,
+				63DB94B81C4C4136002255AC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63DB94AF1C4C4136002255AC /* PBXTargetDependency */,
+				63DB94B11C4C4136002255AC /* PBXTargetDependency */,
+			);
+			name = satinstitch;
+			productName = libsvgtiny2;
+			productReference = 63DB94BC1C4C4136002255AC /* satinstitch */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,7 +342,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				631042C21C4AAF6C00B77D27 /* libsvgtiny2 */,
+				631042C21C4AAF6C00B77D27 /* apple_main */,
+				63DB94AE1C4C4136002255AC /* satinstitch */,
 				631042D01C4AAFF800B77D27 /* libsvgtiny */,
 				63361D6D1C4B464900E08DC0 /* libsvgtinywriter */,
 			);
@@ -296,7 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63DB948E1C4C2737002255AC /* apple_main.c in Sources */,
+				63DB94BD1C4C4151002255AC /* apple_main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +380,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		63DB94B31C4C4136002255AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63DB94BF1C4C4164002255AC /* satinstitch.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -333,6 +400,16 @@
 			isa = PBXTargetDependency;
 			target = 63361D6D1C4B464900E08DC0 /* libsvgtinywriter */;
 			targetProxy = 63361D771C4B4E4B00E08DC0 /* PBXContainerItemProxy */;
+		};
+		63DB94AF1C4C4136002255AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 631042D01C4AAFF800B77D27 /* libsvgtiny */;
+			targetProxy = 63DB94B01C4C4136002255AC /* PBXContainerItemProxy */;
+		};
+		63DB94B11C4C4136002255AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63361D6D1C4B464900E08DC0 /* libsvgtinywriter */;
+			targetProxy = 63DB94B21C4C4136002255AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -481,6 +558,22 @@
 			};
 			name = Release;
 		};
+		63DB94BA1C4C4136002255AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63DB94BB1C4C4136002255AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -493,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		631042CA1C4AAF6C00B77D27 /* Build configuration list for PBXNativeTarget "libsvgtiny2" */ = {
+		631042CA1C4AAF6C00B77D27 /* Build configuration list for PBXNativeTarget "apple_main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				631042CB1C4AAF6C00B77D27 /* Debug */,
@@ -516,6 +609,15 @@
 			buildConfigurations = (
 				63361D6F1C4B464A00E08DC0 /* Debug */,
 				63361D701C4B464A00E08DC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63DB94B91C4C4136002255AC /* Build configuration list for PBXNativeTarget "satinstitch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63DB94BA1C4C4136002255AC /* Debug */,
+				63DB94BB1C4C4136002255AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

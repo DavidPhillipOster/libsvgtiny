@@ -29,7 +29,7 @@ SVGTINYWRITER_H= libsvgtinywriter/include/svgtiny_writer.h \
 
 SVGDIRECTORIES= -I/usr/include/libxml2 -Ilibsvgtinywriter/include -Ilibsvgtiny/include -I.
 CFLAGS= $(SVGDIRECTORIES) -DUSE_XML2
-all: bin/apple_main
+all: bin/apple_main bin/satinstitch
 
 bin/libsvgtiny.a : $(SVGTINY_O) $(SVGTINY_H)
 	- mkdir bin
@@ -42,6 +42,9 @@ bin/libsvgtinywriter.a : $(SVGTINYWRITER_O) $(SVGTINYWRITER_H)
 bin/apple_main : bin/libsvgtiny.a bin/libsvgtinywriter.a examples/apple_main.c
 	cc $(CFLAGS)  -o bin/apple_main examples/apple_main.c bin/libsvgtiny.a bin/libsvgtinywriter.a -lxml2
 
+bin/satinstitch : bin/libsvgtiny.a bin/libsvgtinywriter.a examples/satinstitch.c
+	cc $(CFLAGS)  -o bin/satinstitch examples/satinstitch.c bin/libsvgtiny.a bin/libsvgtinywriter.a -lxml2
+
 test: bin/apple_main
 	bin/apple_main
 
@@ -49,6 +52,6 @@ clean:
 	rm -f $(SVGTINY_O) $(SVGTINYWRITER_O) bin/libsvgtinywriter.a bin/libsvgtiny.a
 
 pristine: clean
-	rm -f bin/apple_main
+	rm -f bin/apple_main bin/satinstitch
 	rmdir bin
 
