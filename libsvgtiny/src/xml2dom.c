@@ -15,7 +15,6 @@
 #include <libxml/parser.h>
 #include <libxml/xmlstring.h>
 #include <string.h>
-#include <stdlib.h>
 
 static int sDidInitXML2Lib = 0;
 

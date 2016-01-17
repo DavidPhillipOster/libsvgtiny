@@ -11,6 +11,7 @@
 #ifndef SVGTINY_XML2DOM_H
 #define SVGTINY_XML2DOM_H
 
+#include <stdlib.h>
 #include <stdint.h>
 
 struct _xmlNode;  // forward declaration.
