@@ -31,3 +31,4 @@ Other linker flags:
 Note:
 * Gradients are parsed, but discarded. Eventually there will be additional API to exract them from the svgtiny_shape
 * I'm not that interested in gradients, but I am interested in text. I'll be adding a text properties with font info.
+* When parsing, there should be an option to derive the viewbox from the input file, rather than having to pass it in.

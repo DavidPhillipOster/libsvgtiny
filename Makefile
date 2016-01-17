@@ -32,9 +32,11 @@ CFLAGS= $(SVGDIRECTORIES) -DUSE_XML2
 all: bin/apple_main
 
 bin/libsvgtiny.a : $(SVGTINY_O) $(SVGTINY_H)
+	- mkdir bin
 	ar rs bin/libsvgtiny.a $(SVGTINY_O)
 
 bin/libsvgtinywriter.a : $(SVGTINYWRITER_O) $(SVGTINYWRITER_H)
+	- mkdir bin
 	ar rs bin/libsvgtinywriter.a $(SVGTINYWRITER_O)
 
 bin/apple_main : bin/libsvgtiny.a bin/libsvgtinywriter.a examples/apple_main.c
@@ -48,4 +50,5 @@ clean:
 
 pristine: clean
 	rm -f bin/apple_main
+	rmdir bin
 
