@@ -1,0 +1,11 @@
+#  libsvgtiny.exp
+#  Don't export any helper routines from the svgTiny library, just the ones explicitly declared.
+#  Licensed under the MIT License,
+#                  http://opensource.org/licenses/mit-license.php
+#
+#  Copyright © 2016 David Phillip Oster. All rights reserved.
+
+_svgtiny_create
+_svgtiny_parse
+_svgtiny_free
+

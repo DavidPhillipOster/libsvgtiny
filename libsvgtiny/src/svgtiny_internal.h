@@ -10,7 +10,11 @@
 
 #include <stdbool.h>
 
+#ifdef USE_XML2 // Defined in Xcode project.
+#include "xml2dom.h"
+#else
 #include <dom/dom.h>
+#endif  // USE_XML2
 
 #ifndef UNUSED
 #define UNUSED(x) ((void) (x))
@@ -22,7 +26,6 @@ struct svgtiny_gradient_stop {
 };
 
 #define svgtiny_MAX_STOPS 10
-#define svgtiny_LINEAR_GRADIENT 0x2000000
 
 struct svgtiny_parse_state {
 	struct svgtiny_diagram *diagram;
@@ -71,7 +74,7 @@ void svgtiny_parse_transform(char *s, float *ma, float *mb,
 struct svgtiny_shape *svgtiny_add_shape(struct svgtiny_parse_state *state);
 void svgtiny_transform_path(float *p, unsigned int n,
 		struct svgtiny_parse_state *state);
-#if defined(_GNU_SOURCE)
+#if (defined(_GNU_SOURCE) && !defined(__APPLE__) || defined(__amigaos4__) || defined(__HAIKU__) || (defined(_POSIX_C_SOURCE) && ((_POSIX_C_SOURCE - 0) >= 200809L)))
 #define HAVE_STRNDUP
 #else
 #undef HAVE_STRNDUP

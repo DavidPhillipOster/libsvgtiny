@@ -8,19 +8,27 @@
 #ifndef SVGTINY_H
 #define SVGTINY_H
 
-typedef int svgtiny_colour;
-#define svgtiny_TRANSPARENT 0x1000000
+typedef unsigned int svgtiny_colour;
 #ifdef __riscos__
-#define svgtiny_RGB(r, g, b) ((b) << 16 | (g) << 8 | (r))
+#define svgtiny_RGB(r, g, b) (0xff << 24 | (b) << 16 | (g) << 8 | (r))
 #define svgtiny_RED(c) ((c) & 0xff)
 #define svgtiny_GREEN(c) (((c) >> 8) & 0xff)
 #define svgtiny_BLUE(c) (((c) >> 16) & 0xff)
 #else
-#define svgtiny_RGB(r, g, b) ((r) << 16 | (g) << 8 | (b))
+#define svgtiny_RGB(r, g, b) (0xff << 24 | (r) << 16 | (g) << 8 | (b))
 #define svgtiny_RED(c) (((c) >> 16) & 0xff)
 #define svgtiny_GREEN(c) (((c) >> 8) & 0xff)
 #define svgtiny_BLUE(c) ((c) & 0xff)
 #endif
+#define svgtiny_ALPHA(c) (((c) >> 24) & 0xff)
+
+// Use these colors to indicate special.
+// They are legal, but unlikely, black that's almost transparent.
+// TODO: in a future commit, we'll malloc the gradient description into the _internal_extensions
+// field of the svgtiny_shape, and we'll lopk at that to decide if an object has a gradient.
+#define svgtiny_LINEAR_GRADIENT 0x2000000
+#define svgtiny_TRANSPARENT     0x1000000
+
 
 struct svgtiny_shape {
 	float *path;
@@ -29,7 +37,8 @@ struct svgtiny_shape {
 	float text_x, text_y;
 	svgtiny_colour fill;
 	svgtiny_colour stroke;
-	int stroke_width;
+	float stroke_width;
+  void *_internal_extensions;  // TODO: if non-NULL, points to an allocated on the heap extension block. (gradients, fonts)
 };
 
 struct svgtiny_diagram {
@@ -68,9 +77,5 @@ svgtiny_code svgtiny_parse(struct svgtiny_diagram *diagram,
 		const char *buffer, size_t size, const char *url,
 		int width, int height);
 void svgtiny_free(struct svgtiny_diagram *svg);
-
-svgtiny_code svgtiny_parse_dom(const char *buffer, size_t size, const char *url, dom_document **output_dom);
-svgtiny_code svgtiny_parse_svg_from_dom(struct svgtiny_diagram *diagram, dom_document *dom, int width, int height);
-void svgtiny_free_dom(dom_document *dom);
 
 #endif
