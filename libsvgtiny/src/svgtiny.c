@@ -137,7 +137,7 @@ static void ignore_msg(uint32_t severity, void *ctx, const char *msg, ...)
  * Parse a block of memory into a svgtiny_diagram.
  */
 
-svgtiny_code svgtiny_parse(struct svgtiny_diagram *diagram,
+svgtiny_code svgtiny_parse_inner(struct svgtiny_diagram *diagram,
 		const char *buffer, size_t size, const char *url,
 		int viewport_width, int viewport_height)
 {
@@ -235,8 +235,20 @@ svgtiny_code svgtiny_parse(struct svgtiny_diagram *diagram,
 #undef SVGTINY_STRING_ACTION2
 
 	svgtiny_parse_position_attributes(svg, state, &x, &y, &width, &height);
+  if (width <= 0 && 0 < height) {
+    width = height;
+  }
+  if (height <= 0 && 0 < width) {
+    height = width;
+  }
 	diagram->width = width;
 	diagram->height = height;
+  if (state.viewport_width <= 0) {
+    state.viewport_width = width;
+  }
+  if (state.viewport_height <= 0) {
+    state.viewport_width = height;
+  }
 
 	/* set up parsing state */
 	state.viewport_width = width;
@@ -390,6 +402,19 @@ svgtiny_code svgtiny_parse_svg(dom_element *svg,
 
 	svgtiny_cleanup_state_local(&state);
 	return svgtiny_OK;
+}
+
+svgtiny_code svgtiny_parse(struct svgtiny_diagram *diagram,
+		const char *buffer, size_t size, const char *url,
+		int viewport_width, int viewport_height)
+{
+  return svgtiny_parse_inner(diagram, buffer, size, url, viewport_width, viewport_height);
+}
+
+svgtiny_code svgtiny_parse0(struct svgtiny_diagram *diagram,
+		const char *buffer, size_t size)
+{
+  return svgtiny_parse_inner(diagram, buffer, size, NULL, -1, -1);
 }
 
 

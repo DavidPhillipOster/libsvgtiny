@@ -8,6 +8,10 @@
 #ifndef SVGTINY_H
 #define SVGTINY_H
 
+// To get the definition of size_t
+#include <stdlib.h>
+
+
 typedef unsigned int svgtiny_colour;
 #ifdef __riscos__
 #define svgtiny_RGB(r, g, b) (0xff << 24 | (b) << 16 | (g) << 8 | (r))
@@ -73,9 +77,16 @@ struct svgtiny_named_color {
 
 
 struct svgtiny_diagram *svgtiny_create(void);
+
 svgtiny_code svgtiny_parse(struct svgtiny_diagram *diagram,
 		const char *buffer, size_t size, const char *url,
 		int width, int height);
+
+// Gets the width and size from the buffer.
+svgtiny_code svgtiny_parse0(struct svgtiny_diagram *diagram,
+		const char *buffer, size_t size);
+
+
 void svgtiny_free(struct svgtiny_diagram *svg);
 
 #endif
